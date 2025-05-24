@@ -1,32 +1,31 @@
 apiVersion: v1
 kind: Deployment
-
 metadata:
   name: my-app-frontend
   labels:
     app: my-app-frontend
-
 spec:
   replicas: 1
   selector:
     matchLabel:
-      app: my-app-frontendn-backend
-    strategy:
-      type: RollingUpdate
-      rollingUpdate:
-        maxSurge: 3
-    template:
-      metadata:
-        labels:
-          app: my-app-frontend
-      spec:
-        containers:
-          - name: my-app-frontend
-            image: container-reg.icosnet.local/sso/my-app-frontend:latest
-            ports:
-              - containerPort: 3000
-            envFrom:
-              - configMapRef:
-                  name: my-app-frontend-configmap
-              - secretRef:
-                  name: my-app-frontend-secret
+      app: my-app-frontend
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 3
+      masxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: my-app-frontend
+    spec:
+      containers:
+        - name: my-app-frontend
+          image: container-reg.icosnet.local/sso/my-app-frontend:1.0.0 # {"$imagepolicy": "flux-system:my-app-backend-policy"}
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: my-app-frontend-configmap
+            - secretRef:
+                name: my-app-frontend-secret

@@ -4,12 +4,12 @@ pipeline {
     environment {
         CONTAINER_REG = "cicd-worker-01.icosnet.local"
         VERSION = "1.0.0"
-        IMAGE_NAME = "authn-service-frontend"
+        IMAGE_NAME = "my-app-frontend"
         IMAGE_TAG = "latest"
         PROJECT =  "sso"
         IMAGE_FULL_NAME = "${CONTAINER_REG}/${PROJECT}/${IMAGE_NAME}:${VERSION}"
         DOCKERFILE_PATH = "./Dockerfile"
-        CONTEXT = ""
+        CONTEXT = "."
 
         PATH = "/bin:/usr/bin:/usr/local/bin"
     }
