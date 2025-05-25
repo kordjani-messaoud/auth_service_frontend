@@ -7,7 +7,7 @@ metadata:
 spec:
   replicas: 1
   selector:
-    matchLabel:
+    matchLabels:
       app: my-app-frontend
   strategy:
     type: RollingUpdate
