@@ -5,7 +5,7 @@ metadata:
 
 data:
   AUTH_ISSUER: http://auth-service.com/realms/master
-  NEXTAUTH_URL: http://192.168.101.103:3000
+  NEXTAUTH_URL: http://192.168.101.103
   END_SESSION_URL: http://auth-service.com/realms/ICOSNET/protocol/openid-connect/logout
-  AUTH_SERVICE_URL: http://auth-service.com
   REFRESH_TOKEN_URL: http://auth-service.com/realms/ICOSNET/protocol/openid-connect/token
+  AUTH_SERVICE_URL: http://192.168.101.106
